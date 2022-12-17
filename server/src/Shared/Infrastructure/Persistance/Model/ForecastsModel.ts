@@ -8,7 +8,7 @@ import { CityModel } from './CityModel';
 export class ForecastModel {
   @PrimaryColumn({
     name: 'id',
-    type: 'number',
+    type: 'int',
     transformer: {
       from: (value: number): Id => new Id(value),
       to: (value: Id): number => value.value,

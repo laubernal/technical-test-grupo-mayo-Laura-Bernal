@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  mariadb:
+    container_name: weather-test
+    image: 'mariadb:latest'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./sql/weather.sql:/docker-entrypoint-initdb.d/weather.sql
+    environment:
+      MARIADB_DATABASE: weather
+      MARIADB_ROOT_PASSWORD: password

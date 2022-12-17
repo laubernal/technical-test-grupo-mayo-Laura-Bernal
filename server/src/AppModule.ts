@@ -22,16 +22,19 @@ const Repositories = [
 const Mappers = [CityMapper];
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-    type: 'mariadb',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'root',
-    database: 'test',
-    entities: [CityModel, ClimateModel, ForecastModel],
-    synchronize: false,
-  }),],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mariadb',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'password',
+      database: 'weather',
+      entities: [CityModel, ClimateModel, ForecastModel],
+      synchronize: false,
+    }),
+    TypeOrmModule.forFeature([CityModel]),
+  ],
   controllers: [...Controllers],
   providers: [...Handlers, ...Repositories, ...Mappers],
 })
