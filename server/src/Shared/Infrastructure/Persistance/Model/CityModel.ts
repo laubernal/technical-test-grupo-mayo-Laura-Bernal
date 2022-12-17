@@ -1,6 +1,6 @@
-import { CityName } from 'src/Shared/Domain/Vo/CityName.vo';
-import { Id } from 'src/Shared/Domain/Vo/Id.vo';
-import { StringVo } from 'src/Shared/Domain/Vo/String.vo';
+import { CityName } from 'src/Shared/Domain/Vo/CityName';
+import { Id } from 'src/Shared/Domain/Vo/Id';
+import { StringVo } from 'src/Shared/Domain/Vo/String';
 import { Column, Entity, PrimaryColumn, OneToMany } from 'typeorm';
 import { ClimatesModel } from './ClimatesModel';
 import { ForecastsModel } from './ForecastsModel';

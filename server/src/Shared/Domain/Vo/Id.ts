@@ -1,4 +1,4 @@
-import { NumberVo } from './Number.vo';
+import { NumberVo } from './Number';
 
 export class Id extends NumberVo {
   constructor(value: number) {

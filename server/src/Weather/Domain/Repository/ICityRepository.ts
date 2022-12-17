@@ -1,4 +1,4 @@
-import { CityName } from 'src/Shared/Domain/Vo/CityName.vo';
+import { CityName } from 'src/Shared/Domain/Vo/CityName';
 import { City } from '../Entity/City';
 
 export interface ICityRepository {

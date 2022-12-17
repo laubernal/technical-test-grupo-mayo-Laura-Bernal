@@ -1,7 +1,7 @@
-import { Id } from 'src/Shared/Domain/Vo/Id.vo';
-import { Month } from 'src/Shared/Domain/Vo/Month.vo';
-import { StringVo } from 'src/Shared/Domain/Vo/String.vo';
-import { Temperature } from 'src/Shared/Domain/Vo/Temperature.vo';
+import { Id } from 'src/Shared/Domain/Vo/Id';
+import { Month } from 'src/Shared/Domain/Vo/Month';
+import { StringVo } from 'src/Shared/Domain/Vo/String';
+import { Temperature } from 'src/Shared/Domain/Vo/Temperature';
 
 export class Climate {
   constructor(
@@ -10,7 +10,7 @@ export class Climate {
     private readonly _maxTemperature: Temperature,
     private readonly _minTemperature: Temperature,
     private readonly _rainDays: StringVo,
-    private readonly _rainFall: StringVo,
+    private readonly _rainFall: StringVo
   ) {}
 
   public id(): Id {

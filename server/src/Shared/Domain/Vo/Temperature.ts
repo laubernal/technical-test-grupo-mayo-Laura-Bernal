@@ -1,4 +1,4 @@
-import { StringVo } from './String.vo';
+import { StringVo } from './String';
 
 export class Temperature extends StringVo {
   constructor(value: string) {

@@ -14,8 +14,8 @@ export class StringVo extends ValueObject {
       string.parse(this._value);
 
       return true;
-    } catch (error) {
-      throw new StringFormatError();
+    } catch (error: any) {
+      throw new StringFormatError(error);
     }
   }
 

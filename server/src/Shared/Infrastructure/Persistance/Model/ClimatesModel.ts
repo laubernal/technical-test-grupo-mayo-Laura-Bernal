@@ -1,7 +1,7 @@
-import { Id } from 'src/Shared/Domain/Vo/Id.vo';
-import { Month } from 'src/Shared/Domain/Vo/Month.vo';
-import { StringVo } from 'src/Shared/Domain/Vo/String.vo';
-import { Temperature } from 'src/Shared/Domain/Vo/Temperature.vo';
+import { Id } from 'src/Shared/Domain/Vo/Id';
+import { Month } from 'src/Shared/Domain/Vo/Month';
+import { StringVo } from 'src/Shared/Domain/Vo/String';
+import { Temperature } from 'src/Shared/Domain/Vo/Temperature';
 import { Column, Entity, PrimaryColumn, ManyToOne } from 'typeorm';
 import { CityModel } from './CityModel';
 

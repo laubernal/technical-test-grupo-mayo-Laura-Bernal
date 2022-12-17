@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CityName } from 'src/Shared/Domain/Vo/CityName.vo';
+import { CityName } from 'src/Shared/Domain/Vo/CityName';
 import { City } from 'src/Weather/Domain/Entity/City';
 import { ICityRepository } from 'src/Weather/Domain/Repository/ICityRepository';
 

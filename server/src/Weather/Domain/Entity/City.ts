@@ -1,6 +1,6 @@
-import { StringVo } from 'src/Shared/Domain/Vo/String.vo';
-import { CityName } from '../../../Shared/Domain/Vo/CityName.vo';
-import { Id } from '../../../Shared/Domain/Vo/Id.vo';
+import { StringVo } from 'src/Shared/Domain/Vo/String';
+import { CityName } from '../../../Shared/Domain/Vo/CityName';
+import { Id } from '../../../Shared/Domain/Vo/Id';
 import { Climate } from './Climate';
 import { Forecast } from './Forecast';
 
@@ -11,7 +11,7 @@ export class City {
     private readonly _latitude: StringVo,
     private readonly _longitude: StringVo,
     private readonly _climates: Climate[],
-    private readonly _forecasts: Forecast[],
+    private readonly _forecasts: Forecast[]
   ) {}
 
   public id(): Id {
