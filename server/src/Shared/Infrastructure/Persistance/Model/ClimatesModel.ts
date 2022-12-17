@@ -6,7 +6,7 @@ import { Column, Entity, PrimaryColumn, ManyToOne } from 'typeorm';
 import { CityModel } from './CityModel';
 
 @Entity('climates')
-export class ClimatesModel {
+export class ClimateModel {
   @PrimaryColumn({
     name: 'id',
     type: 'number',

@@ -1,18 +1,18 @@
 import { Body, Controller, Get } from '@nestjs/common';
 import { GetCityDto } from 'src/Weather/Application/Dto/GetCityDto';
 import { GetCityHandler } from 'src/Weather/Application/UseCases/GetCityHandler';
-import { CityRepository } from '../Persistance/Repository/CityRepository';
 import { GetCityApiRequest } from './GetCityApiRequest';
 import { GetCityApiResponse } from './GetCityApiResponse';
 
 @Controller()
 export class GetCityController {
+  constructor(private readonly handler: GetCityHandler) {}
   @Get('/city')
   //   public async GetCity(@Body() body: GetCityApiRequest): Promise<GetCityApiResponse> {
   public async GetCity(@Body() body: GetCityApiRequest): Promise<void> {
     const getCityDto = new GetCityDto(body.name);
 
-    const city = await new GetCityHandler(new CityRepository()).execute(getCityDto);
+    const city = await this.handler.execute(getCityDto);
 
     const climates = city.climates().map(climate => {
       return {

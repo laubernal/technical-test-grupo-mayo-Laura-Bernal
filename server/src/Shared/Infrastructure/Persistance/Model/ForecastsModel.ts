@@ -5,7 +5,7 @@ import { Column, Entity, PrimaryColumn, ManyToOne } from 'typeorm';
 import { CityModel } from './CityModel';
 
 @Entity('forecasts')
-export class ForecastsModel {
+export class ForecastModel {
   @PrimaryColumn({
     name: 'id',
     type: 'number',

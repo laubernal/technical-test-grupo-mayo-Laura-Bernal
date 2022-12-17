@@ -1,4 +1,5 @@
 import { Inject } from '@nestjs/common';
+import { RecordNotFoundError } from 'src/Shared/Domain/Error/RecordNotFoundError';
 import { CityName } from 'src/Shared/Domain/Vo/CityName';
 import { City } from 'src/Weather/Domain/Entity/City';
 import { ICityRepository } from 'src/Weather/Domain/Repository/ICityRepository';
@@ -12,6 +13,10 @@ export class GetCityHandler {
       const cityName = new CityName(getCityDto.name);
 
       const city = await this.repository.findOneByName(cityName);
+
+      if (city instanceof RecordNotFoundError) {
+        throw new Error();
+      }
 
       return city;
     } catch (error: any) {

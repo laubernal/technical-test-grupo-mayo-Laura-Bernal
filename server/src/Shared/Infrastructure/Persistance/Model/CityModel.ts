@@ -2,8 +2,8 @@ import { CityName } from 'src/Shared/Domain/Vo/CityName';
 import { Id } from 'src/Shared/Domain/Vo/Id';
 import { StringVo } from 'src/Shared/Domain/Vo/String';
 import { Column, Entity, PrimaryColumn, OneToMany } from 'typeorm';
-import { ClimatesModel } from './ClimatesModel';
-import { ForecastsModel } from './ForecastsModel';
+import { ClimateModel } from './ClimatesModel';
+import { ForecastModel } from './ForecastsModel';
 
 @Entity('cities')
 export class CityModel {
@@ -47,9 +47,9 @@ export class CityModel {
   })
   lon!: StringVo;
 
-  @OneToMany(() => ClimatesModel, climate => climate.city)
-  climates!: ClimatesModel[];
+  @OneToMany(() => ClimateModel, climate => climate.city)
+  climates!: ClimateModel[];
 
-  @OneToMany(() => ForecastsModel, forecast => forecast.city)
-  forecasts!: ForecastsModel[];
+  @OneToMany(() => ForecastModel, forecast => forecast.city)
+  forecasts!: ForecastModel[];
 }
