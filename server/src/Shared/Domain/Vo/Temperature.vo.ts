@@ -1,13 +1,13 @@
-import { NumberVo } from './Number.vo';
+import { StringVo } from './String.vo';
 
-export class Temperature extends NumberVo {
-  constructor(value: number) {
+export class Temperature extends StringVo {
+  constructor(value: string) {
     super(value);
 
     this.validate();
   }
 
-  get value(): number {
+  get value(): string {
     return this.value;
   }
 }

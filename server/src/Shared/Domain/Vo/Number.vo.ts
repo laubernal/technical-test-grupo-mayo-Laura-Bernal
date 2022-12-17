@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 import { NumberFormatError } from '../Error/NumberFormatError';
 import { ValueObject } from './ValueObject';
 
@@ -14,8 +14,8 @@ export class NumberVo extends ValueObject {
       number.parse(this._value);
 
       return true;
-    } catch (error) {
-      throw new NumberFormatError();
+    } catch (error: any) {
+      throw new NumberFormatError(error);
     }
   }
 

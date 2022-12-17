@@ -1,7 +1,7 @@
 import { ValueObject } from './ValueObject';
 
 export class Id extends ValueObject {
-  constructor(private _value: string) {
+  constructor(private _value: number) {
     super();
 
     if (this.validate(this._value)) {
@@ -9,7 +9,7 @@ export class Id extends ValueObject {
     }
   }
 
-  public get value(): string {
+  public get value(): number {
     return this._value;
   }
 
@@ -17,7 +17,7 @@ export class Id extends ValueObject {
   //   return new ID(uuidV4());
   // }
 
-  protected validate(value: string): boolean {
+  protected validate(value: number): boolean {
     return true;
     // return !validate(value);
   }

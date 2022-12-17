@@ -1,4 +1,4 @@
-import { NumberVo } from 'src/Shared/Domain/Vo/Number.vo';
+import { StringVo } from 'src/Shared/Domain/Vo/String.vo';
 import { CityName } from '../../../Shared/Domain/Vo/CityName.vo';
 import { Id } from '../../../Shared/Domain/Vo/Id.vo';
 import { Climate } from './Climate';
@@ -6,25 +6,27 @@ import { Forecast } from './Forecast';
 
 export class City {
   constructor(
-    _id: Id,
+    private readonly _id: Id,
     private readonly _name: CityName,
-    private readonly _latitude: NumberVo,
-    private readonly _longitude: NumberVo,
+    private readonly _latitude: StringVo,
+    private readonly _longitude: StringVo,
     private readonly _climates: Climate[],
     private readonly _forecasts: Forecast[],
-    _createdAt?: Date,
-    _updatedAt?: Date,
   ) {}
+
+  public id(): Id {
+    return this._id;
+  }
 
   public name(): CityName {
     return this._name;
   }
 
-  public latitude(): NumberVo {
+  public latitude(): StringVo {
     return this._latitude;
   }
 
-  public longitude(): NumberVo {
+  public longitude(): StringVo {
     return this._longitude;
   }
 

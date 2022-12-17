@@ -4,14 +4,16 @@ import { Id } from '../../../Shared/Domain/Vo/Id.vo';
 
 export class Forecast {
   constructor(
-    _id: Id,
+    private readonly _id: Id,
     private readonly _date: Date,
     private readonly _weather: Weather,
     private readonly _maxTemperature: Temperature,
-    private readonly _minTemperature: Temperature,
-    _createdAt?: Date,
-    _updatedAt?: Date,
+    private readonly _minTemperature: Temperature
   ) {}
+
+  public id(): Id {
+    return this._id;
+  }
 
   public date(): Date {
     return this._date;
@@ -24,7 +26,7 @@ export class Forecast {
   public maxTemperature(): Temperature {
     return this._maxTemperature;
   }
-  
+
   public minTemperature(): Temperature {
     return this._minTemperature;
   }
