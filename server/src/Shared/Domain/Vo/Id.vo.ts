@@ -1,24 +1,13 @@
-import { ValueObject } from './ValueObject';
+import { NumberVo } from './Number.vo';
 
-export class Id extends ValueObject {
-  constructor(private _value: number) {
-    super();
+export class Id extends NumberVo {
+  constructor(value: number) {
+    super(value);
 
-    if (this.validate(this._value)) {
-      throw new Error('Incorrect ID format');
-    }
+    this.validate();
   }
 
-  public get value(): number {
-    return this._value;
-  }
-
-  // static generate(): ID {
-  //   return new ID(uuidV4());
-  // }
-
-  protected validate(value: number): boolean {
-    return true;
-    // return !validate(value);
+  get value(): number {
+    return this.value;
   }
 }
