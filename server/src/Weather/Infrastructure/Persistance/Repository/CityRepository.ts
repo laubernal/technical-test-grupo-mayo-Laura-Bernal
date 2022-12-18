@@ -15,14 +15,16 @@ export class CityRepository implements ICityRepository {
     private readonly mapper: CityMapper
   ) {}
 
-  public async findOneByName(name: CityName): Promise<City | RecordNotFoundError> {
-    // const res = await this.typeormRepository.createQueryBuilder().innerJoin()
-    const result = await this.typeormRepository
-      .createQueryBuilder()
-      .leftJoinAndSelect('city.climates', 'climate')
-      .leftJoinAndSelect('city.forecasts', 'forecast')
-      .where('city.name = :name', { name })
-      .getOne();
+  public async findOneByName(name: CityName): Promise<City> {
+    const result = await this.typeormRepository.findOne({
+      where: {
+        name,
+      },
+      relations: {
+        climates: true,
+        forecasts: true,
+      },
+    });
 
     if (!result) {
       throw new RecordNotFoundError();

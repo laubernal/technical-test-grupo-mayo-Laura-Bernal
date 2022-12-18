@@ -2,7 +2,7 @@ import { Id } from 'src/Shared/Domain/Vo/Id';
 import { Month } from 'src/Shared/Domain/Vo/Month';
 import { StringVo } from 'src/Shared/Domain/Vo/String';
 import { Temperature } from 'src/Shared/Domain/Vo/Temperature';
-import { Column, Entity, PrimaryColumn, ManyToOne } from 'typeorm';
+import { Column, Entity, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { CityModel } from './CityModel';
 
 @Entity('climates')
@@ -67,6 +67,20 @@ export class ClimateModel {
   })
   rainFall!: StringVo;
 
+  @Column({
+    name: 'city_id',
+    type: 'int',
+    transformer: {
+      from: (value: number): Id => new Id(value),
+      to: (value: Id): number => value.value,
+    },
+  })
+  cityId!: Id;
+
   @ManyToOne(() => CityModel, city => city.climates)
+  @JoinColumn({
+    name: 'city_id',
+    referencedColumnName: 'id',
+  })
   city!: CityModel;
 }

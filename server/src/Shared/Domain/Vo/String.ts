@@ -3,7 +3,7 @@ import { StringFormatError } from 'src/Shared/Domain/Error/StringFormatError';
 import { ValueObject } from './ValueObject';
 
 export class StringVo extends ValueObject {
-  constructor(private readonly _value: string) {
+  constructor(protected readonly _value: string) {
     super();
     this.validate();
   }

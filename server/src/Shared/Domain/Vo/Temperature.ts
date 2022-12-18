@@ -8,6 +8,6 @@ export class Temperature extends StringVo {
   }
 
   get value(): string {
-    return this.value;
+    return this._value;
   }
 }

@@ -8,6 +8,6 @@ export class Id extends NumberVo {
   }
 
   get value(): number {
-    return this.value;
+    return this._value;
   }
 }

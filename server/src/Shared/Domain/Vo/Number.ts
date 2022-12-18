@@ -1,9 +1,9 @@
-import { z } from "zod";
+import { z } from 'zod';
 import { NumberFormatError } from '../Error/NumberFormatError';
 import { ValueObject } from './ValueObject';
 
 export class NumberVo extends ValueObject {
-  constructor(private readonly _value: number) {
+  constructor(protected readonly _value: number) {
     super();
     this.validate();
   }

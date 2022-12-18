@@ -4,6 +4,7 @@ import { CityModel } from './Shared/Infrastructure/Persistance/Model/CityModel';
 import { ClimateModel } from './Shared/Infrastructure/Persistance/Model/ClimatesModel';
 import { ForecastModel } from './Shared/Infrastructure/Persistance/Model/ForecastsModel';
 import { GetCityHandler } from './Weather/Application/UseCases/GetCityHandler';
+import { CityPresenter } from './Weather/Infrastructure/Controller/CityPresenter';
 import { GetCityController } from './Weather/Infrastructure/Controller/GetCityController';
 import { CityMapper } from './Weather/Infrastructure/Persistance/Mappers/CityMapper';
 import { CityRepository } from './Weather/Infrastructure/Persistance/Repository/CityRepository';
@@ -36,6 +37,6 @@ const Mappers = [CityMapper];
     TypeOrmModule.forFeature([CityModel]),
   ],
   controllers: [...Controllers],
-  providers: [...Handlers, ...Repositories, ...Mappers],
+  providers: [...Handlers, ...Repositories, ...Mappers, CityPresenter],
 })
 export class AppModule {}

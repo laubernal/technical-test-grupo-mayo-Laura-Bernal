@@ -1,23 +1,34 @@
 type Climate = {
   id: number;
   month: string;
-  maxTemperature: number;
-  minTemperature: number;
-  rainDays: number;
-  rainFall: number;
+  maxTemperature: string;
+  minTemperature: string;
+  rainDays: string;
+  rainFall: string;
 };
 
 type Forecast = {
   id: number;
   date: string;
   weather: string;
-  maxTemperature: number;
-  minTemperature: number;
+  maxTemperature: string;
+  minTemperature: string;
+};
+
+type City = {
+  id: number;
+  name: string;
+  latitude: string;
+  longitude: string;
+  climates: Climate[];
+  forecasts: Forecast[];
+};
+
+type ApplicationError = {
+  message: string;
 };
 
 export type GetCityApiResponse = {
-  id: number;
-  name: string;
-  climates: Climate[];
-  forecasts: Forecast[];
+  data: City | null;
+  error?: ApplicationError;
 };

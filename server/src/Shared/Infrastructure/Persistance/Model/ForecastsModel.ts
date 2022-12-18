@@ -1,7 +1,7 @@
 import { Id } from 'src/Shared/Domain/Vo/Id';
 import { Temperature } from 'src/Shared/Domain/Vo/Temperature';
 import { Weather } from 'src/Shared/Domain/Vo/Weather';
-import { Column, Entity, PrimaryColumn, ManyToOne } from 'typeorm';
+import { Column, Entity, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { CityModel } from './CityModel';
 
 @Entity('forecasts')
@@ -56,6 +56,20 @@ export class ForecastModel {
   })
   maxTemperature!: Temperature;
 
+  @Column({
+    name: 'city_id',
+    type: 'int',
+    transformer: {
+      from: (value: number): Id => new Id(value),
+      to: (value: Id): number => value.value,
+    },
+  })
+  cityId!: Id;
+
   @ManyToOne(() => CityModel, city => city.forecasts)
+  @JoinColumn({
+    name: 'city_id',
+    referencedColumnName: 'id',
+  })
   city!: CityModel;
 }
