@@ -1,3 +1,3 @@
 export interface GetCityApiRequest {
-  name: string;
+  search: string;
 }

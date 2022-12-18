@@ -19,6 +19,12 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
+To build the database from the docker container
+
+```
+docker-compose up
+```
+
 To run the server
 
 ```
@@ -28,7 +34,7 @@ npm run start:dev
 To run the client
 
 ```
-npm run start
+npm start
 ```
 
 End with an example of getting some data out of the system or using it for a little demo

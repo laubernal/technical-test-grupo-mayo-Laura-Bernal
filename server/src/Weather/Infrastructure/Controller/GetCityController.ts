@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Query } from '@nestjs/common';
 import { GetCityDto } from 'src/Weather/Application/Dto/GetCityDto';
 import { GetCityHandler } from 'src/Weather/Application/UseCases/GetCityHandler';
 import { CityPresenter } from './CityPresenter';
@@ -13,8 +13,10 @@ export class GetCityController {
   ) {}
 
   @Get('/city')
-  public async GetCity(@Body() body: GetCityApiRequest): Promise<GetCityApiResponse> {
-    const getCityDto = new GetCityDto(body.name);
+  public async GetCity(@Query() queryParams: GetCityApiRequest): Promise<GetCityApiResponse> {
+    console.log('BODY', queryParams);
+
+    const getCityDto = new GetCityDto(queryParams.search);
 
     const response = await this.handler.execute(getCityDto);
 
