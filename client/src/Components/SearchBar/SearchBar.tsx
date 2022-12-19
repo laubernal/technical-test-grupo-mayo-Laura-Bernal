@@ -1,22 +1,31 @@
 import { Button, Grid, TextInput } from '@mantine/core';
-import { useState } from 'react';
 import { Search } from 'tabler-icons-react';
+import { Weather } from '../../types';
 
-const SearchBar = (): JSX.Element => {
-  const [value, setValue] = useState('');
-  // console.log('VALUE', value);
+interface props {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  setResponse: React.Dispatch<
+    React.SetStateAction<{
+      data: Weather | null;
+      error?: any;
+    }>
+  >;
+}
 
+const SearchBar = ({ value, setValue, setResponse }: props): JSX.Element => {
   const buttonClick = async () => {
-    console.log('VALUE', value);
-
     const response = await fetch(
-      `http://localhost:5000/city?${new URLSearchParams({ search: value })}`,
+      `http://localhost:5000/city?${new URLSearchParams({
+        search: value,
+      })}`,
       {
         method: 'GET',
         mode: 'cors',
       }
     );
-    console.log('RESPONSE', await response.json());
+
+    setResponse(await response.json());
   };
 
   return (

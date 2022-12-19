@@ -14,8 +14,6 @@ export class GetCityController {
 
   @Get('/city')
   public async GetCity(@Query() queryParams: GetCityApiRequest): Promise<GetCityApiResponse> {
-    console.log('BODY', queryParams);
-
     const getCityDto = new GetCityDto(queryParams.search);
 
     const response = await this.handler.execute(getCityDto);

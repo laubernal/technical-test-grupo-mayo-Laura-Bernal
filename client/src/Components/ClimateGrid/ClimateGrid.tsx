@@ -1,118 +1,32 @@
-import { Grid, Container } from '@mantine/core';
+import { Grid, Container, Title } from '@mantine/core';
+import { Climate, Weather } from '../../types';
 import ClimateInfo from './ClimateInfo';
 
-const ClimateGrid = (): JSX.Element => {
+interface props {
+  response: {
+    data: Weather | null;
+    error?: any;
+  };
+}
+
+const ClimateGrid = ({ response }: props): JSX.Element => {
   return (
     <Container>
+      <Title order={4}>{response.data!.name} climate</Title>
       <Grid>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="Mostly Cloudy"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="February"
-            weather="Light Rain"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="March"
-            weather="Partly Cloudy"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="April"
-            weather="Rain"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="May"
-            weather="Scattered Showers"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="June"
-            weather="Sunny"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="cloudIcon"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="cloudIcon"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="cloudIcon"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="cloudIcon"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="cloudIcon"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <ClimateInfo
-            month="January"
-            weather="cloudIcon"
-            maxTemperature="17"
-            minTemperature="8"
-            rainFall="170"
-          />
-        </Grid.Col>
+        {response.data!.climates.map((climate: Climate) => {
+          return (
+            <Grid.Col span={4} key={climate.id}>
+              <ClimateInfo
+                month={climate.month}
+                rainDays={climate.rainDays}
+                maxTemperature={climate.maxTemperature}
+                minTemperature={climate.minTemperature}
+                rainFall={climate.rainFall}
+              />
+            </Grid.Col>
+          );
+        })}
       </Grid>
     </Container>
   );
