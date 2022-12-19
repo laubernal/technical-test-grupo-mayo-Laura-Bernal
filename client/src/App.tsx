@@ -1,4 +1,4 @@
-import { Container, Grid, Tabs, Text, Title } from '@mantine/core';
+import { Container, Tabs, Title } from '@mantine/core';
 import { useState } from 'react';
 import './App.css';
 import CityInfo from './Components/CityInfo.tsx/CityInfo';
