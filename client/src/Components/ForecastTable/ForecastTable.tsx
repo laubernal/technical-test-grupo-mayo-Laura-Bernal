@@ -12,10 +12,10 @@ interface props {
 const ForecastTable = ({ response }: props): JSX.Element => {
   return (
     <Container>
-      <Table fontSize="lg" verticalSpacing='sm' highlightOnHover>
+      <Table fontSize="lg" verticalSpacing="sm" highlightOnHover>
         {response.data!.forecasts.map((forecast: Forecast) => {
           return (
-            <tbody>
+            <tbody key={forecast.id}>
               <ForecastInfo
                 date={forecast.date}
                 weather={forecast.weather}

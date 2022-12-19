@@ -1,8 +1,10 @@
-import { Container, Space, Tabs, Text, Title } from '@mantine/core';
+import { Container, Grid, Tabs, Text, Title } from '@mantine/core';
 import { useState } from 'react';
 import './App.css';
+import CityInfo from './Components/CityInfo.tsx/CityInfo';
 import ClimateGrid from './Components/ClimateGrid/ClimateGrid';
 import ForecastTable from './Components/ForecastTable/ForecastTable';
+import RecordNotFoundErrorPage from './Components/RecordNotFoundError/RecordNotFoundErrorPage';
 import SearchBar from './Components/SearchBar/SearchBar';
 import { Weather } from './types';
 
@@ -13,25 +15,22 @@ function App() {
   return (
     <Container size="md" className="App">
       <Container className="SearchBar">
-        <Title order={2} size="h2">
+        <Title order={2} size="h2" sx={{ marginBottom: '7vh' }}>
           Laura Bernal's technical test for Grupo Mayo
         </Title>
-        <Space h="xl" />
         <SearchBar value={value} setValue={setValue} setResponse={setResponse} />
       </Container>
       {response.data && (
-        <Container>
-          <Text fz="lg" fw={400}>
-            Latitude: {response.data.latitude} | Longitude: {response.data.longitude}
-          </Text>
-          <Space h="sm" />
+        <Container sx={{ marginTop: '7vh', marginBottom: '20vh' }}>
+          <CityInfo response={response} />
+
           <Tabs variant="outline" radius="md" defaultValue="forecast">
             <Tabs.List grow position="center">
               <Tabs.Tab value="forecast">
-                <Text fz="lg">Forecast</Text>
+                <Title fz="lg">Forecast</Title>
               </Tabs.Tab>
               <Tabs.Tab value="climate">
-                <Text fz="lg">Climate</Text>
+                <Title fz="lg">Climate</Title>
               </Tabs.Tab>
             </Tabs.List>
 
@@ -45,6 +44,7 @@ function App() {
           </Tabs>
         </Container>
       )}
+      {response.error && <RecordNotFoundErrorPage />}
     </Container>
   );
 }
