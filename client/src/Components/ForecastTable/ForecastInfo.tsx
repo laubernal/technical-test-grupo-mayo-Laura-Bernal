@@ -1,4 +1,4 @@
-import { Container, Image, Stack, Table } from '@mantine/core';
+import { Image } from '@mantine/core';
 import { LIGHT_RAIN, MOSTLY_CLOUDY, PARTLY_CLOUDY, RAIN, SCATTERED_SHOWERS } from '../../constants';
 import cloudIcon from '../../Icons/clouds-48.png';
 import partlyCloudyIcon from '../../Icons/partly-cloudy-day-48.png';
@@ -16,23 +16,16 @@ interface props {
 
 const ForecastInfo = ({ date, weather, maxTemperature, minTemperature }: props): JSX.Element => {
   return (
-    <Container>
-      <Stack>
-        <Table fontSize="xl" highlightOnHover>
-          <tbody>
-            <tr>
-              <td>{date.slice(4, 10)}</td>
-              <td>
-                <Image src={iconFactory(weather)} width={32} height={32} />
-              </td>
-              <td>{weather}</td>
-              <td>{maxTemperature}ºC</td>
-              <td>{minTemperature}ºC</td>
-            </tr>
-          </tbody>
-        </Table>
-      </Stack>
-    </Container>
+    <tr>
+      <td>{date.slice(4, 10)}</td>
+      <td>
+        <Image src={iconFactory(weather)} width={32} height={32} />
+      </td>
+      <td>{weather}</td>
+      <td>
+        {maxTemperature}ºC / {minTemperature}ºC
+      </td>
+    </tr>
   );
 };
 

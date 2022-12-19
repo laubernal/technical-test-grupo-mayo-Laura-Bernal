@@ -1,8 +1,8 @@
-import { Container, Space, Tabs, Title } from '@mantine/core';
+import { Container, Space, Tabs, Text, Title } from '@mantine/core';
 import { useState } from 'react';
 import './App.css';
 import ClimateGrid from './Components/ClimateGrid/ClimateGrid';
-import ForecastGrid from './Components/ForecastGrid/ForecastGrid';
+import ForecastTable from './Components/ForecastTable/ForecastTable';
 import SearchBar from './Components/SearchBar/SearchBar';
 import { Weather } from './types';
 
@@ -19,24 +19,32 @@ function App() {
         <Space h="xl" />
         <SearchBar value={value} setValue={setValue} setResponse={setResponse} />
       </Container>
-      <Container>
-        {response.data && (
-          <Tabs defaultValue="forecast">
+      {response.data && (
+        <Container>
+          <Text fz="lg" fw={400}>
+            Latitude: {response.data.latitude} | Longitude: {response.data.longitude}
+          </Text>
+          <Space h="sm" />
+          <Tabs variant="outline" radius="md" defaultValue="forecast">
             <Tabs.List grow position="center">
-              <Tabs.Tab value="forecast">Forecast</Tabs.Tab>
-              <Tabs.Tab value="climate">Climate</Tabs.Tab>
+              <Tabs.Tab value="forecast">
+                <Text fz="lg">Forecast</Text>
+              </Tabs.Tab>
+              <Tabs.Tab value="climate">
+                <Text fz="lg">Climate</Text>
+              </Tabs.Tab>
             </Tabs.List>
 
             <Tabs.Panel value="forecast" pt="xs">
-              {response.data && <ForecastGrid response={response} />}
+              {response.data && <ForecastTable response={response} />}
             </Tabs.Panel>
 
             <Tabs.Panel value="climate" pt="xs">
               {response.data && <ClimateGrid response={response} />}
             </Tabs.Panel>
           </Tabs>
-        )}
-      </Container>
+        </Container>
+      )}
     </Container>
   );
 }

@@ -20,7 +20,7 @@ const ClimateInfo = ({
   return (
     <Grid justify="center">
       <Grid.Col>
-        <Title order={5}>{new Date(month).toLocaleString('en-us', { month: 'long' })}</Title>
+        <Title order={6}>{new Date(month).toLocaleString('en-us', { month: 'long' })}</Title>
       </Grid.Col>
       <Grid.Col>
         <Flex justify="center">
@@ -28,12 +28,12 @@ const ClimateInfo = ({
         </Flex>
       </Grid.Col>
       <Grid.Col>
-        <Text fz="md">
+        <Text fz="sm">
           {maxTemperature}ºC / {minTemperature}ºC
         </Text>
       </Grid.Col>
       <Grid.Col>
-        <Text fz="sm">{rainFall} mm</Text>
+        <Text fz="xs">{rainFall} mm</Text>
       </Grid.Col>
     </Grid>
   );
