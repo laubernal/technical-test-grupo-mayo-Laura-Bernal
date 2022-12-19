@@ -1,4 +1,4 @@
-import { Container, Grid, Image, Text, Title } from '@mantine/core';
+import { Flex, Grid, Image, Text, Title } from '@mantine/core';
 import rainIcon from '../../Icons/rain-48.png';
 import sunnyIcon from '../../Icons/sun-48.png';
 
@@ -18,18 +18,24 @@ const ClimateInfo = ({
   rainFall,
 }: props): JSX.Element => {
   return (
-    <Container>
-      <Grid>
-        <Grid.Col span={3}>
-          <Title order={5}>{month}</Title>
+    <Grid justify="center">
+      <Grid.Col>
+        <Title order={5}>{new Date(month).toLocaleString('en-us', { month: 'long' })}</Title>
+      </Grid.Col>
+      <Grid.Col>
+        <Flex justify="center">
           <Image src={iconFactory(month, rainDays)} width={32} height={32} />
-          <Text fz="sm">
-            {maxTemperature}º / {minTemperature}º
-          </Text>
-          <Text fz="xs">{rainFall} mm</Text>
-        </Grid.Col>
-      </Grid>
-    </Container>
+        </Flex>
+      </Grid.Col>
+      <Grid.Col>
+        <Text fz="md">
+          {maxTemperature}ºC / {minTemperature}ºC
+        </Text>
+      </Grid.Col>
+      <Grid.Col>
+        <Text fz="sm">{rainFall} mm</Text>
+      </Grid.Col>
+    </Grid>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Grid, Container, Title } from '@mantine/core';
+import { Grid, Container, Space } from '@mantine/core';
 import { Climate, Weather } from '../../types';
 import ClimateInfo from './ClimateInfo';
 
@@ -12,11 +12,11 @@ interface props {
 const ClimateGrid = ({ response }: props): JSX.Element => {
   return (
     <Container>
-      <Title order={4}>{response.data!.name} climate</Title>
-      <Grid>
+      <Grid justify="center">
         {response.data!.climates.map((climate: Climate) => {
           return (
             <Grid.Col span={4} key={climate.id}>
+              <Space h="md" />
               <ClimateInfo
                 month={climate.month}
                 rainDays={climate.rainDays}
