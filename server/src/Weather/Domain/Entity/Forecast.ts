@@ -1,6 +1,6 @@
 import { Temperature } from 'src/Shared/Domain/Vo/Temperature';
 import { Weather } from 'src/Shared/Domain/Vo/Weather';
-import { Id } from '../../../Shared/Domain/Vo/Id';
+import { Id } from 'src/Shared/Domain/Vo/Id';
 
 export class Forecast {
   constructor(

@@ -3,18 +3,18 @@ import { ApplicationResponse } from 'src/Shared/Domain/Entity/ApplicationRespons
 import { CityName } from 'src/Shared/Domain/Vo/CityName';
 import { City } from 'src/Weather/Domain/Entity/City';
 import { ICityRepository } from 'src/Weather/Domain/Repository/ICityRepository';
-import { GetCityDto } from '../Dto/GetCityDto';
+import { GetCityWeatherDto } from '../Dto/GetCityWeatherDto';
 
-export class GetCityHandler {
+export class GetCityWeatherHandler {
   constructor(@Inject('ICityRepository') private readonly repository: ICityRepository) {}
 
-  public async execute(getCityDto: GetCityDto): Promise<ApplicationResponse<City>> {
+  public async execute(getCityWeatherDto: GetCityWeatherDto): Promise<ApplicationResponse<City>> {
     try {
-      const cityName = new CityName(getCityDto.name);
+      const cityName = new CityName(getCityWeatherDto.name);
 
-      const city = await this.repository.findOneByName(cityName);
+      const cityWeather = await this.repository.findOneByName(cityName);
 
-      return ApplicationResponse.success(city);
+      return ApplicationResponse.success(cityWeather);
     } catch (error: any) {
       return ApplicationResponse.error(error);
     }

@@ -28,7 +28,7 @@ type ApplicationError = {
   message: string;
 };
 
-export type GetCityApiResponse = {
+export type GetCityWeatherApiResponse = {
   data: City | null;
   error?: ApplicationError;
 };

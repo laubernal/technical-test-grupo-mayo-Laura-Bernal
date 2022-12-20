@@ -1,6 +1,6 @@
+import { CityName } from 'src/Shared/Domain/Vo/CityName';
+import { Id } from 'src/Shared/Domain/Vo/Id';
 import { StringVo } from 'src/Shared/Domain/Vo/String';
-import { CityName } from '../../../Shared/Domain/Vo/CityName';
-import { Id } from '../../../Shared/Domain/Vo/Id';
 import { Climate } from './Climate';
 import { Forecast } from './Forecast';
 

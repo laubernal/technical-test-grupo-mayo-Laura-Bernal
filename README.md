@@ -1,7 +1,12 @@
 # Laura Bernal's technical test for Grupo Mayo
 
-
 This is a technical test for Grupo Mayo made by Laura Bernal.
+
+## Way of approaching the problem
+
+## Technical considerations
+
+Justify the decisions made for the project
 
 ## Getting Started
 
@@ -39,12 +44,7 @@ npm start
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Justifications
-
-Justify the decisions made for the project
-
 ## Built With
 
-* [NestJs](https://nestjs.com/) 
-* [React](https://es.reactjs.org/)
-
+- [NestJs](https://nestjs.com/)
+- [React](https://es.reactjs.org/)

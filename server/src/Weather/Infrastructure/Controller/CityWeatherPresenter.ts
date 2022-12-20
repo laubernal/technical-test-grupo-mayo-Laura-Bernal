@@ -1,9 +1,9 @@
 import { ApplicationResponse } from 'src/Shared/Domain/Entity/ApplicationResponse';
 import { City } from 'src/Weather/Domain/Entity/City';
-import { GetCityApiResponse } from './GetCityApiResponse';
+import { GetCityWeatherApiResponse } from './GetCityWeatherApiResponse';
 
-export class CityPresenter {
-  public present(response: ApplicationResponse<City>): GetCityApiResponse {
+export class CityWeatherPresenter {
+  public present(response: ApplicationResponse<City>): GetCityWeatherApiResponse {
     if (response.succeded()) {
       const climates = response
         .data()!

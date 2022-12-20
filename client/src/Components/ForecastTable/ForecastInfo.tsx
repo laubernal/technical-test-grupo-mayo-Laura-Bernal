@@ -19,12 +19,12 @@ const ForecastInfo = ({ date, weather, maxTemperature, minTemperature }: props):
     <tr>
       <td>{date.slice(4, 10)}</td>
       <td>
+        {maxTemperature}ºC / {minTemperature}ºC
+      </td>
+      <td>
         <Image src={iconFactory(weather)} width={32} height={32} />
       </td>
       <td>{weather}</td>
-      <td>
-        {maxTemperature}ºC / {minTemperature}ºC
-      </td>
     </tr>
   );
 };

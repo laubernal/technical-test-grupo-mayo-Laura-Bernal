@@ -1,3 +1,3 @@
-export class GetCityDto {
+export class GetCityWeatherDto {
   constructor(public name: string) {}
 }
