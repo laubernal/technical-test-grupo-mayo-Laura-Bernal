@@ -28,7 +28,7 @@ In this section I will justify the decisions that I made to do this technical te
   On one hand NestJs includes the Express framework itself so I wouldn't have to worry to install it and handle it myself.
   On the other hand it has dependency injection which is a great tool to use for being able of following the SOLID Principles and better testing, it allows you to not having to instanciate classes inside.
 - I decided to use a library inside my domain although usually it's not a good idea to have parts of code that you don't control in your domain. I used the Zod library to be able of validating strings and numbers in my value objects.
-- For this application I only did one method for the repository (_findOneByCityName_) but ina real world project I would have done a filter and a more generic method for the repository (_findOne_).
+- For this application I only did one method for the repository (_findOneByCityName_) but in a real world project I would have done a filter and a more generic method for the repository (_findOne_).
 - I used TypeORM to build the query because it's more readable for the developers instead of a pure SQL query with joins. It's also integrated in NestJs so that's an advantage too.
 
 ### Front end
